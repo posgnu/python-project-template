@@ -1,5 +1,5 @@
 # Multi-stage build for optimal image size
-FROM python:3.11-slim as builder
+FROM python:3.13-slim as builder
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1 \
@@ -36,7 +36,7 @@ COPY scripts/ ./scripts/
 RUN poetry install --only main
 
 # Final stage
-FROM python:3.11-slim
+FROM python:3.13-slim
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1 \
